@@ -1,0 +1,48 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0.5px;
+  background: #111;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container p {
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+  color: goldenrod;
+  text-transform: uppercase;
+  border-bottom: 2px solid goldenrod;
+}
+
+.container .quotes {
+  width: 750px;
+}
+
+.container .quotes .quote {
+  line-height: 1.8rem;
+  font-size: 1.25rem;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  /* box-shadow: 0px 10px 10px -15px #999; */
+  border-bottom: 1px solid goldenrod;
+}
+
+.container .quotes .quote footer {
+  margin-top: 0.5rem;
+  text-align: end;
+  font-size: 1rem;
+  color: goldenrod;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
