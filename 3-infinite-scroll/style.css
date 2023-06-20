@@ -9,14 +9,20 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 6rem;
 }
 
 .container p {
-  font-size: 1.75rem;
+  font-size: 1rem;
   margin-bottom: 2rem;
-  color: #00acee;
+  background: yellowgreen;
   text-transform: uppercase;
-  border-bottom: 2px solid #00acee;
+  padding: 1rem;
+  border-radius: 5px;
+  color: #111;
+  font-weight: bold;
+  width: 750px;
+  text-align: center;
 }
 
 .container .quotes {
@@ -24,8 +30,13 @@ body {
 }
 
 .container .loader {
-  color: #00acee;
-  font-size: 3rem;
+  border: 4px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 4px solid yellowgreen;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
 }
 
 .container .quotes .quote {
@@ -34,14 +45,14 @@ body {
   padding: 1rem 0;
   margin-bottom: 2rem;
   /* box-shadow: 0px 10px 10px -15px #999; */
-  border-bottom: 1px solid #00acee;
+  border-bottom: 1px solid yellowgreen;
 }
 
 .container .quotes .quote footer {
   margin-top: 0.5rem;
   text-align: end;
   font-size: 1rem;
-  color: #00acee;
+  color: yellowgreen;
 }
 
 .show {
@@ -50,6 +61,42 @@ body {
 
 .hide {
   display: none;
+}
+
+@media screen and (max-width: 786px) {
+  body {
+    margin-top: 0;
+  }
+  .container p {
+    width: 100%;
+    margin-top: 0;
+  }
+  .container .quotes {
+    width: unset;
+  }
+  .container .quotes .quote {
+    font-size: 1.1rem;
+  }
+  .container .quotes .quote footer {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .container {
+    padding: 0 1rem;
+    padding-top: 5rem;
+  }
+  .container p {
+    position: fixed;
+    top: 0;
+  }
+  .container .quotes .quote {
+    font-size: 1rem;
+  }
+  .container .quotes .quote footer {
+    font-size: 0.8rem;
+  }
 }
 
 /* width */
@@ -64,10 +111,19 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #00acee;
+  background: yellowgreen;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
