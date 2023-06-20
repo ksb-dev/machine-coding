@@ -1,6 +1,6 @@
 let page = 1
+const limit = 10
 let totalPages = 0
-let limit = 10
 
 const quotesEl = document.querySelector('.quotes')
 const loaderEl = document.querySelector('.loader')
@@ -19,6 +19,7 @@ const getQuotes = async (page = 1, limit = 10) => {
   if (!response.ok) {
     throw new Error(`An error occurred: ${response.status}`)
   }
+
   return await response.json()
 }
 
@@ -37,23 +38,27 @@ const showQuotes = quotes => {
   })
 }
 
+function hasMoreQuotes (page, totalPages) {
+  console.log(page, totalPages)
+  return page < totalPages
+}
+
 const loadQuotes = async () => {
   showLoader()
 
-  var res
+  setTimeout(async () => {
+    try {
+      const response = await getQuotes(page, limit)
 
-  if (page === 1) {
-    res = await getQuotes()
-    totalPages = Math.ceil(res.total / limit)
-    showQuotes(res.data)
-  } else if (page > 1 && page <= totalPages) {
-    res = await getQuotes(page, limit)
-    showQuotes(res.data)
-  }
+      showQuotes(response.data)
 
-  hideLoader()
-
-  page++
+      totalPages = Math.ceil(response.total / limit)
+    } catch (error) {
+      console.log(error.message)
+    } finally {
+      hideLoader()
+    }
+  }, 500)
 }
 
 window.addEventListener('scroll', () => {
@@ -61,7 +66,10 @@ window.addEventListener('scroll', () => {
     Math.ceil(window.scrollY + window.innerHeight) >=
     document.documentElement.scrollHeight
   ) {
-    loadQuotes()
+    if (hasMoreQuotes(page, totalPages)) {
+      page++
+      loadQuotes()
+    }
   }
 })
 
