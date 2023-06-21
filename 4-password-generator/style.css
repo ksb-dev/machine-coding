@@ -1,0 +1,113 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #222;
+  font-family: monospace;
+}
+
+.container {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #111;
+  color: #00b7ff;
+  color: goldenrod;
+  padding: 2rem;
+  padding-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.container > p {
+  margin-top: 0;
+  text-align: center;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.container > input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  background: #222;
+  color: #fff;
+}
+
+.container > input:focus {
+  outline: 2px solid goldenrod;
+}
+
+.container > input::placeholder {
+  color: #999;
+  font-family: monospace;
+  text-align: center;
+}
+
+.container > input::-webkit-outer-spin-button,
+.container > input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.container .options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.container .options div {
+  margin-bottom: 0.5rem;
+}
+
+.container .options div label {
+  font-size: 1rem;
+}
+
+.container button {
+  background: goldenrod;
+  color: #111;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.container button:hover {
+  background: transparent;
+  color: goldenrod;
+  border: 2px solid goldenrod;
+  padding: 6px;
+}
+
+.container .result {
+  text-align: center;
+}
+
+.container .result p {
+  font-size: 1rem;
+}
+
+.container .result span {
+  color: yellowgreen;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container .error span {
+  display: inline-block;
+  color: tomato;
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.hide {
+  display: none;
+}
